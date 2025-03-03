@@ -14,6 +14,8 @@ int main() {
     float areaCidade1, areaCidade2 = 0;
     float pibCidade1, pibCidade2 = 0;
     int numeroPontoTuriticoCidade1, numeroPontoTuriticoCidade2 = 0;
+    float denPopulacionalCidade1, denPopulacionalCidade2 = 0;
+    float pibPerCapitaCidade1, pibPerCapitaCidade2 = 0;
 
     //Apresentando o jogo.
     printf("Seja bem-vindo!\nEsse um jogo sobre cartas e cidades - Siga as intruções...");
@@ -68,6 +70,13 @@ int main() {
     printf("Número de pontos turísticos: ");
     scanf("%d", &numeroPontoTuriticoCidade2);
 
+    // Derivando dados da cidade
+    denPopulacionalCidade1 = populacaoCidade1 / areaCidade1;
+    denPopulacionalCidade2 = populacaoCidade2 / areaCidade2;
+
+    pibPerCapitaCidade1 = (pibCidade1 * 1000000000) / populacaoCidade1;
+    pibPerCapitaCidade2 = (pibCidade2 * 1000000000) / populacaoCidade2;
+
     //Imprimindo as infomações da carta da cidade1.
     printf("\n\nCarta 1: ");
     printf("\nEstado: %c", estado1);
@@ -77,6 +86,8 @@ int main() {
     printf("\nÁrea: %.3f km²", areaCidade1);
     printf("\nPIB: %.2f bilhões de reais", pibCidade1);
     printf("\nNúmero de Pontos Turísticos: %d", numeroPontoTuriticoCidade1);
+    printf("\nDesidade Populacional: %.2f hab/km²", denPopulacionalCidade1);
+    printf("\nPIB per Capita: %.2f reais", pibPerCapitaCidade1);
 
     //Imprimindo as infomações da carta da cidade2.
     printf("\n\nCarta 2: ");
@@ -87,6 +98,8 @@ int main() {
     printf("\nÁrea: %.3f km²", areaCidade2);
     printf("\nPIB: %.2f bilhões de reais", pibCidade2);
     printf("\nNúmero de Pontos Turísticos: %d", numeroPontoTuriticoCidade2);
+    printf("\nDesidade Populacional: %.2f hab/km²", denPopulacionalCidade2);
+    printf("\nPIB per Capita: %.2f reais", pibPerCapitaCidade2);
 
     //Fim
     return 0;
