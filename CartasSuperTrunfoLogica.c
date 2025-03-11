@@ -51,21 +51,41 @@ int main() {
 
     // Comparando os valores das cartas
     printf("\n");
-    printf("Compare os atributos e veja quem ganha:\n");
+    printf("Compare dois atributos e veja quem ganha:\n");
 
-    int opcao = 0;
-    printf("Escolha a opção:\n");
+    int erro = 0;
+
+    int opcao1 = 0, opcao2 = 0;
+    printf("Escolha o atributo1:\n");
     printf("1. Populacao\n");
     printf("2. Area\n");
     printf("3. PIB\n");
     printf("4. Numeros de Pontos turisticos\n");
     printf("5. Desidade demografica\n");
 
-    printf("Escolha a opcao: ");
-    scanf("%d", &opcao);
+    printf("Escolha a opcao1: ");
+    scanf("%d", &opcao1);
     printf("\n");
 
-    switch (opcao) {
+    printf("Escolha o atributo2:\n");
+    int opcaoProibida = 0;
+
+    opcao1 != 1 ? printf("1. Populacao\n"): (opcaoProibida = 1) ;
+    opcao1 != 2 ? printf("2. Area\n"): (opcaoProibida = 2) ;
+    opcao1 != 3 ? printf("3. PIB\n"): (opcaoProibida = 3) ;
+    opcao1 != 4 ? printf("4. Numeros de Pontos turisticos\n"): (opcaoProibida = 4) ;
+    opcao1 != 5 ? printf("5. Desidade demografica\n"): (opcaoProibida = 5) ;
+
+    printf("Escolha a opcao2: ");
+    scanf("%d", &opcao2);
+    printf("\n");
+
+    if (opcao2 == opcaoProibida) {
+        printf("Nao pode repeti as opcoes!!!\n");
+        opcao1 = 0;
+    }
+
+    switch (opcao1) {
         case 1:
             printf("Cidade1: %s - Cidade2: %s\n", nomeCidade1, nomeCidade2);
             printf("Comparando populacao...\n");
@@ -90,14 +110,14 @@ int main() {
             printf("%s: %.3fKm² - %s: %.3fKm²\n", nomeCidade1, areaCidade1, nomeCidade2, areaCidade2);
 
             if (areaCidade1 > areaCidade2) {
-                printf("%s venceu!", nomeCidade1);
+                printf("%s venceu!\n", nomeCidade1);
 
             } else if (areaCidade1 < areaCidade2)
             {
-                printf("%s venceu!", nomeCidade2);
+                printf("%s venceu!\n", nomeCidade2);
             } else
             {
-                printf("Empate!");
+                printf("Empate!\n");
             }
             
             break;
@@ -108,14 +128,14 @@ int main() {
             printf("%s: R$%.2fB - %s: R$%.2fB\n", nomeCidade1, pibCidade1, nomeCidade2, pibCidade2);
 
             if (pibCidade1 > pibCidade2) {
-                printf("%s venceu!", nomeCidade1);
+                printf("%s venceu!\n", nomeCidade1);
 
             } else if (pibCidade1 < pibCidade2)
             {
-                printf("%s venceu!", nomeCidade2);
+                printf("%s venceu!\n", nomeCidade2);
             } else
             {
-                printf("Empate!");
+                printf("Empate!\n");
             }
             
             break;
@@ -126,32 +146,132 @@ int main() {
             printf("%s: %d - %s: %d\n", nomeCidade1, numeroPontoTuriticoCidade1, nomeCidade2, numeroPontoTuriticoCidade2);
 
             if (numeroPontoTuriticoCidade1 > numeroPontoTuriticoCidade2) {
-                printf("%s venceu!", nomeCidade1);
+                printf("%s venceu!\n", nomeCidade1);
 
             } else if (numeroPontoTuriticoCidade1 < numeroPontoTuriticoCidade2)
             {
-                printf("%s venceu!", nomeCidade2);
+                printf("%s venceu!\n", nomeCidade2);
             } else
             {
-                printf("Empate!");
+                printf("Empate!\n");
             }
             
             break;
 
             case 5:
             printf("Cidade1: %s - Cidade2: %s\n", nomeCidade1, nomeCidade2);
-            printf("Comparando PIB...\n");
+            printf("Comparando dencidade populacional...\n");
             printf("%s: %.2fhab/Km² - %s: %.2fhab/Km²\n", nomeCidade1, denPopulacionalCidade1, nomeCidade2, denPopulacionalCidade2);
 
             if (!(denPopulacionalCidade1 > denPopulacionalCidade2)) {
-                printf("%s venceu!", nomeCidade1);
+                printf("%s venceu!\n", nomeCidade1);
 
             } else if (!(denPopulacionalCidade1 < denPopulacionalCidade2))
             {
-                printf("%s venceu!", nomeCidade2);
+                printf("%s venceu!\n", nomeCidade2);
             } else
             {
-                printf("Empate!");
+                printf("Empate!\n");
+            }
+            
+            break;
+
+        default:
+            erro = 1;
+            break;
+
+    }
+
+    printf("\n");
+    (erro == 1 ? (opcao2 = 0) : 0);
+
+    switch (opcao2) {
+        case 1:
+            printf("Cidade1: %s - Cidade2: %s\n", nomeCidade1, nomeCidade2);
+            printf("Comparando populacao...\n");
+            printf("%s: %lluhab - %s: %lluhab\n", nomeCidade1, populacaoCidade1, nomeCidade2, populacaoCidade2);
+
+            if (populacaoCidade1 > populacaoCidade2) {
+                printf("%s venceu!\n", nomeCidade1);
+
+            } else if (populacaoCidade1 < populacaoCidade2)
+            {
+                printf("%s venceu!\n", nomeCidade2);
+            } else
+            {
+                printf("Empate!\n");
+            }
+            
+            break;
+
+            case 2:
+            printf("Cidade1: %s - Cidade2: %s\n", nomeCidade1, nomeCidade2);
+            printf("Comparando area...\n");
+            printf("%s: %.3fKm² - %s: %.3fKm²\n", nomeCidade1, areaCidade1, nomeCidade2, areaCidade2);
+
+            if (areaCidade1 > areaCidade2) {
+                printf("%s venceu!\n", nomeCidade1);
+
+            } else if (areaCidade1 < areaCidade2)
+            {
+                printf("%s venceu!\n", nomeCidade2);
+            } else
+            {
+                printf("Empate!\n");
+            }
+            
+            break;
+
+            case 3:
+            printf("Cidade1: %s - Cidade2: %s\n", nomeCidade1, nomeCidade2);
+            printf("Comparando PIB...\n");
+            printf("%s: R$%.2fB - %s: R$%.2fB\n", nomeCidade1, pibCidade1, nomeCidade2, pibCidade2);
+
+            if (pibCidade1 > pibCidade2) {
+                printf("%s venceu!\n", nomeCidade1);
+
+            } else if (pibCidade1 < pibCidade2)
+            {
+                printf("%s venceu!\n", nomeCidade2);
+            } else
+            {
+                printf("Empate!\n");
+            }
+            
+            break;
+
+            case 4:
+            printf("Cidade1: %s - Cidade2: %s\n", nomeCidade1, nomeCidade2);
+            printf("Comparando pontos turistico...\n");
+            printf("%s: %d - %s: %d\n", nomeCidade1, numeroPontoTuriticoCidade1, nomeCidade2, numeroPontoTuriticoCidade2);
+
+            if (numeroPontoTuriticoCidade1 > numeroPontoTuriticoCidade2) {
+                printf("%s venceu!\n", nomeCidade1);
+
+            } else if (numeroPontoTuriticoCidade1 < numeroPontoTuriticoCidade2)
+            {
+                printf("%s venceu!\n", nomeCidade2);
+            } else
+            {
+                printf("Empate!\n");
+            }
+            
+            break;
+
+            case 5:
+            printf("Cidade1: %s - Cidade2: %s\n", nomeCidade1, nomeCidade2);
+            printf("Comparando dencidade populacional...\n");
+            printf("%s: %.2fhab/Km² - %s: %.2fhab/Km²\n", nomeCidade1, denPopulacionalCidade1, nomeCidade2, denPopulacionalCidade2);
+
+            if (!(denPopulacionalCidade1 > denPopulacionalCidade2)) {
+                printf("%s venceu!\n", nomeCidade1);
+
+            } else if (!(denPopulacionalCidade1 < denPopulacionalCidade2))
+            {
+                printf("%s venceu!\n", nomeCidade2);
+            } else
+            {
+                printf("Empate!\n");
             }
             
             break;
@@ -160,6 +280,29 @@ int main() {
             printf("Opcao invalida!\n");
             break;
 
+    }
+    if (erro == 0) {
+        float soma1, soma2;
+        soma1 = soma2 = 0.0;
+
+        // Uso operadores ternarios para somar os atributos de cada cidade de um jeito mais compacto.
+        soma1 = 
+            (opcao1 == 1 ? populacaoCidade1 : opcao1 == 2 ? areaCidade1 : opcao1 == 3 ? pibCidade1 : opcao1 == 4 ? numeroPontoTuriticoCidade1 : 1 / (denPopulacionalCidade1)) 
+            + 
+            (opcao2 == 1 ? populacaoCidade1 : opcao2 == 2 ? areaCidade1 : opcao2 == 3 ? pibCidade1 : opcao2 == 4 ? numeroPontoTuriticoCidade1 : 1 / (denPopulacionalCidade1));
+
+        soma2 = 
+            (opcao1 == 1 ? populacaoCidade2 : opcao1 == 2 ? areaCidade2 : opcao1 == 3 ? pibCidade2 : opcao1 == 4 ? numeroPontoTuriticoCidade2 : 1 / (denPopulacionalCidade1)) 
+            + 
+            (opcao2 == 1 ? populacaoCidade2 : opcao2 == 2 ? areaCidade2 : opcao2 == 3 ? pibCidade2 : opcao2 == 4 ? numeroPontoTuriticoCidade2 : 1 / (denPopulacionalCidade2));
+
+
+        //Exibindo o resultado.
+        printf("\nO resultado final e:\n");
+        printf("%s com %.2f pontos\n", nomeCidade1, soma1);
+        printf("%s com %.2f pontos\n", nomeCidade2, soma2);
+
+        (soma1 > soma2 ? printf("%s venceu!\n", nomeCidade1) : soma1 == soma2 ? printf("Deu empate!\n") : printf("%s venceu!\n", nomeCidade2));
     }
 
     //Fim
